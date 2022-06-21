@@ -1,0 +1,147 @@
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname HONDA
+!
+enable secret 5 $1$mERr$J.u8.nd15nr3dhebEr/y/0
+!
+!
+!
+ip ssh version 2
+ip ssh authentication-retries 2
+ip ssh time-out 60
+ip domain-name HONDA
+!
+username Honda1 secret 5 $1$mERr$X.6lD9XtZ08f5IT9qqMPW.
+username Honda2 secret 5 $1$mERr$Kj5h9fwmPYfQXG5h4ClPn1
+username adminHonda secret 5 $1$mERr$iWUyaSgInmLvmMOUrO64R.
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 172.16.102.135 255.255.255.128
+!
+ip default-gateway 172.16.102.129
+!
+banner motd $                                                   ...............................................
+                                                 ......................................................                                                 
+                                              ...........................''''''.........................        ..                                      
+                                             ....................,;::cccc::::;;,,''...................    ..',,,..'.....                                
+                                           ..................,:ldxxxddoollcc::;;,,''''................  ..;codddc''::,,'...                             
+                                          ................,coxkxddoollcc:;;,,,'''...................   .';clllooo;.;:::;'....                           
+                                        ...............,coxxdoollcc:::;,''''''.....................   ..';;::cccc:..,;;;,.....                          
+                                        .............;oxxdolcc:::;;;;,'.....................  ....   .....',;;;;;;'..',,,'. 'ol.                        
+                                        ...........:oxdlc:::;;;;,,,,,'................               ........'''''.....'''. ;0KOl.                      
+                                       ..........,odoc:;;;;;,,,,''''...............              ..........  ....... ....,;lOXXXXO:.                    
+                                      ..';cl:'  ,c:,'.....................             ..',:cllodkk,    .         ...,cdkKNNNXXKK0l.                    
+                                 ..;coxk00KK0kddxdoolllllllllllllllllllllllllllcccllodxO0KXXXXNNNNx.      ....'';cdOKXNNXXXK00Oxk0dc:'                  
+                              .,lxOKKKKKKKKKKKKKKKKKKKKKKKKKKKKXXXXXXXXXXXXKKKKKKXXXXXXXNXKKXNNNXXk:;ccccokOKKKXXNXXK00KKK0000OkO0000k,                 
+                            .;x0KKKKKKKKKKKKKKKKKKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNNNNNXXNNNNNNXXXKKKK000K0KKKKKKKKOxxO0K0000OOOOOOOOc                 
+                         .'ckKXKKKKKXKKKKKKXXXXXXXXXXXXXXXNNNNNXXXXXXXXXXNNNNNNNNNNNNNWNXNWNNXXXXXKKKKKKK00000000000000000000OOOkkkkkkc.                
+                      .'ckKNNXKKKKKKKKKKKXXXXXXXNNNNNNNNNNNNNNNNNNXXNNNNWNNNNNNNNXK0OkkxdOXKKKKKKKKKKKKK000000000000000000000OOkkkxl:ll.                
+                     .dKXNWWNXKKKKKKXXXNNNNNNNNNNNXXXXXXXXXXXXXXNNNNNNNNNXK00OOkkdollolokKKKKKKKKKKKKKKK00000000000000000OOOOkkkxd:. .:.                
+.....................,o0XNNNXKXXXXNNNWWWNNNNNNXXXXXXXXXXXXXXNNNWWWNXKK0Okxdxxxdxxxolodx0KKKKKKKKK00000KK00000000000OOOOOkkkkxxxddc'.  ,.                
+....................;lodO0KKKXXXXXNNNNXXXXXXXXXXXXXXXXXXXXNXK0OOOOkxxOK0O000KOkKNKdoxOKXKKKKKK0000OOO00000000OOOOOkkkkkkkkxxxxddo'';. ''................
+...............''.,oKXd:odolcclloddxxkkkkkkkkkkkOOOOkOOkdl:;;;;:dkkol0WWWXKOkxxkkddOKXXKKKK0000ko;..'cxOOOOOOkkkkkxxxxxxxxxxxdddc.....'.................
+...............'.;xXNXc.',:c'....,:cc;;:;'..........;c,.   '::;,':l;,:ooolloddxk0KXXKKKKKK0000d'      'dkkkkkxxxxxxxxxxxxxxxxxxd;,,''...................
+................'oXNXKo. .':c...':oxo:,cl'........','.     ......,:loxk0KXNWWWWWNXKKKKKKKK00Ol.        ;xkxxxxxxxxddddxxxxddddxo..',....................
+................'oKXKKO:.. .lc..',;:c:;;,.......''.      ..;:ldxOKNWWWWWWWWWWWWNXKKKKKK000OOo',;;;..   'oxxdoooddddddoooodddxxkc. ......................
+................'lO0OkOx'  .'lc'.......   ....,'...'...;lxOKKXXNNNNNNNNNNNNNNXXKKKK00OOOOkkx;.cxxc...  .:ddoloooooooooddxxxxxdo' .......................
+.................:xOkkxOo.   .,;;,,,,'''''',,;,. ....;dO000KKKXXXXXXXXXXXKKKKKK0OOOOkkkkkkk:  .:l'   .. .coooollooodxxxdl:;'...   ......................
+.................;lloxxxk:    ,c:::;;;;;;;,.        ;x0OO00000KKKKKKKKKKKKKKK000Okkkkkkkkkd,   ':.  .:c. 'loodddxxxdl:'..           ....................
+.................,c,;xxoxx;   :xxxxxxkkkOOO;      .ckOOOOO0000000000KKKK0000O000Okkkkkkkxxd:.. .'..';::' .oxxkxdl:,..             ............''''......
+..................:dlldlcod:..:dllcclllooxk;     .lkOOOOOOOOOkkkkkkkdl:;;;;;;:lkOkkxxxxxxxl:;,';l,...... .ldl:'..        .........'''.''''''''''''''''''
+..................;xKOdl;,,;,,ldoooooooodxk:...';okkkkkkkkkxxddool:,..'cdxO0KK0OOkxxxxxxxd:.  .,:,.   ..  ..        .............',,,'''''''''''''''''''
+..................':dxxdddlc:clllcccccclloo:',,::,,,,,,,''',''....   .:okO0000OkOkxxxddddo'.......,.  ..        ..........''''''',;,,,,'''''''''''''''''
+.......................''',,;;;,,,,,,;;;::c::::clccccccclllooooooodddxkkOO0000000Oxdddxxkx;..''.  .::;.     ..........''''',,;:;,,,,,,,,''''''''''''''''
+..............................          ......',,;;:cclodxkO000000000OOOOOkkkkkkkxdooolc:;,,;,.  ..cl,.  ..........'''',,;:::c:;,,,,,,,,,,,,,,,,,'''''''
+.........................                                  ..........................     ..,;.  ..,.   ........''',,;;::c:::;;;,,,,,,,,,,,,,,,,,,,,''''
+........................                                                                     ......   ......'''',,;::cc:::;;;;;;,,,,,,,,,,,,,,,,,,,,,'''
+'''...'''''''............                                                                           ....'''',,;;::::::;;;;;;;;;;,,,,,,,,,,,,,,,,,,,,,,''
+'''''''''''''''''''''.............                                                          .......''',,,,,;;:::::;;;;;;;;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+''''''''''''''''''''''''''''''''.................                                 ..........'',,,,,;;;,,,;::::;;;;;;;;;;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+''''''''''''''''''''''''''''''''''''''''''''''''''................................'''''',,,,;:;,;,;:::;;,;;;;;;;;;;;;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+''''''''''''',,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,;;;;;;:::;;;;;;;;;;;;;;;;;;;;;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+'''''''''',,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,;;;;;;;;;;;;;;::::;;;;;;;;;;;;;;;;;;;;,,,;;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Acceso solo para usuarios autorizados.
+Los accesos no autorizados van contra la ley y pueden estar sujetos a penas criminales o civiles.$
+!
+!
+!
+line con 0
+ password 7 0822455A104E564F
+ login
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
+
